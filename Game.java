@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.awt.event.*;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Scanner;
+import java.io.IOException;
 
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener,
 MouseMotionListener{
@@ -18,6 +22,7 @@ MouseMotionListener{
    // private Weapons weapom;
     private ArrayList <Range> rangeWeap;
     private Queue <Enemy> enemies;
+    private File saveFile;
 
 
 
@@ -26,6 +31,7 @@ MouseMotionListener{
         this.addKeyListener(this);
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
+        saveFile = new File("saved_file2.0.txt");
         key =-1;
         x=0;
         y=0;
@@ -44,6 +50,20 @@ MouseMotionListener{
         System.out.println(enemies.size());
 
 
+    }
+
+    public void createFile (){
+        try {
+            if(saveFile.createNewFile()){
+                System.out.println("Successfuly created file!");
+            }
+            else{
+                System.out.println("File already exists");
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public Queue <Enemy> setEs(){
