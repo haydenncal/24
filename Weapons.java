@@ -77,11 +77,13 @@ public void setPic(ImageIcon pic) { this.pic = pic; }
     }
     public int getDuribility() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDuribility'");
+        //throw new UnsupportedOperationException("Unimplemented method 'getDuribility'");
+        return duribility;
     }
     public int getDam() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDam'");
+      //  throw new UnsupportedOperationException("Unimplemented method 'getDam'");
+      return dam;
     }
 
     //setters

@@ -6,6 +6,7 @@ import java.awt.event.*;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.IOException;
@@ -35,6 +36,7 @@ MouseMotionListener{
         key =-1;
         x=0;
         y=0;
+        rangeWeap = new ArrayList<>();
         charList = setCharList();
         for(Characters c: charList){
             System.out.println(c);                  
@@ -64,6 +66,41 @@ MouseMotionListener{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+    public void readFile(){
+        Scanner sc;
+        try {
+            sc = new Scanner(saveFile);
+            while(sc.hasNext()){
+                System.out.println(sc.next());
+            }
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+       
+    }
+    public void writeToFile(){
+        FileWriter myWriter;
+        try {
+            myWriter = new FileWriter(saveFile);
+       
+
+        //write what u want to save
+        if(enemies.isEmpty()){
+            myWriter.write("win");
+        }
+        else{
+            myWriter.write("You have "+enemies.size()+" enemies left to kill");
+
+        }
+        myWriter.close();
+        System.out.println("Successfully wrote to file");
+    } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+
     }
 
     public Queue <Enemy> setEs(){
@@ -120,7 +157,7 @@ MouseMotionListener{
         g2d.clearRect(0, 0, getSize().width, getSize().height);
         g2d.setColor(Color.white);
         g2d.setFont(new Font("Times New Roman", Font.BOLD, 65));
-        g2d.drawString("Choose Your Character", 550, 200);
+       
         //g2d.drawImage(background.getImage(),0,0, getWidth(), getHeight(),this);
         
 
@@ -138,6 +175,7 @@ public void drawStartScreen(Graphics g2d) {
     for(Characters c: charList){
        // System.out.println(c);
         c.drawChar(g2d);
+        g2d.drawString("Choose Your Character", 550, 200);
 
     }
 }

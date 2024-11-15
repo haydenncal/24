@@ -23,12 +23,14 @@ public class Main extends JFrame{
                 // TODO Auto-generated method stub
               //  throw new UnsupportedOperationException("Unimplemented method 'windowOpened'");
               play.createFile();
+              play.readFile();
             }
 
             @Override
             public void windowClosing(WindowEvent e) {
                 // TODO Auto-generated method stub
                 //throw new UnsupportedOperationException("Unimplemented method 'windowClosing'");
+                play.writeToFile();
             }
 
             @Override
