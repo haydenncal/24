@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class Game extends JPanel implements Runnable, KeyListener, MouseListener,
 MouseMotionListener{
@@ -24,6 +25,8 @@ MouseMotionListener{
     private ArrayList <Range> rangeWeap;
     private Queue <Enemy> enemies;
     private File saveFile;
+    private double curtime;
+    private double time;
 
 
 
@@ -50,6 +53,8 @@ MouseMotionListener{
         //rangeWeap= new ArrayList <Range>();
         enemies = setEs();
         System.out.println(enemies.size());
+        curtime = 0;
+        time = System.currentTimeMillis();
 
 
     }
@@ -87,13 +92,14 @@ MouseMotionListener{
        
 
         //write what u want to save
-        if(enemies.isEmpty()){
-            myWriter.write("win");
-        }
-        else{
-            myWriter.write("You have "+enemies.size()+" enemies left to kill");
-
-        }
+        
+      //  if(enemies.isEmpty()){
+       //     myWriter.write("win");
+      //  }
+      //  else{
+       //     myWriter.write("You have "+enemies.size()+" enemies left to kill");
+//
+       // }
         myWriter.close();
         System.out.println("Successfully wrote to file");
     } catch (IOException e) {
@@ -202,6 +208,8 @@ public void drawGameScreen(Graphics g2d){
 
      g2d.drawString("Play!", 550, 200);
 }
+g2d.drawString( new DecimalFormat("#0.00").format(curtime), 350,30);
+curtime=(System.currentTimeMillis()- time)/1000;
 }
 
    
