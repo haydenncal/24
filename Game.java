@@ -93,14 +93,7 @@ MouseMotionListener{
 
         //write what u want to save
         if(time>0)
-            myWriter.write("time");
-      //  if(enemies.isEmpty()){
-       //     myWriter.write("win");
-      //  }
-      //  else{
-       //     myWriter.write("You have "+enemies.size()+" enemies left to kill");
-//
-       // }
+            myWriter.write("You spent "+time+" on the game");
         myWriter.close();
         System.out.println("Successfully wrote to file");
     } catch (IOException e) {
@@ -191,7 +184,7 @@ public void drawGameScreen(Graphics g2d){
     player.drawChar(g2d);
     if(!rangeWeap.isEmpty()){
         for(int i=0; i<rangeWeap.size(); i++) {
-            rangeWeap.drawWeap(g2d);
+            rangeWeap.get(i).drawWeap(g2d);
             //   for (int j=0; j<Bullet.size(); j++) {
      //           if(rangeWeap.get(i).hit(sMissiles.get(j))) {
        //             aliens.remove(i);
