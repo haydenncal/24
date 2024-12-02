@@ -68,12 +68,14 @@ public void setH(int h) { this.h = h; }
 //public void setDy(int dy) { this.dy = dy; }
 public void setPic(ImageIcon pic) { this.pic = pic; }
     public ImageIcon getPic() {
+            return pic;
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPic'");
+        //throw new UnsupportedOperationException("Unimplemented method 'getPic'");
     }
     public int getDPS() {
+            return dam;
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDPS'");
+       // throw new UnsupportedOperationException("Unimplemented method 'getDPS'");
     }
     public int getDuribility() {
         // TODO Auto-generated method stub
@@ -98,5 +100,11 @@ public void setPic(ImageIcon pic) { this.pic = pic; }
     public void setDps(int dps) {
         this.dps = dps;
     }
+
+public void drawWeap(Graphics g2d){
+    g2d.drawImage(pic.getImage(), x, y, w, h, null);
+    System.out.println(getX() + getY());
+
+}
     
 }

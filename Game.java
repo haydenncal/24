@@ -105,9 +105,9 @@ MouseMotionListener{
 
     public Queue <Enemy> setEs(){
         Queue <Enemy> temp = new LinkedList <>();
-        temp.add(new Demo(100, 100));
-        temp.add(new Demo(300, 100));
-        temp.add(new Demo(400, 100));
+        temp.add(new Demo(1400, 400));
+        temp.add(new Demo(1400, 400));
+        temp.add(new Demo(1400, 400));
         return temp;
 
     }
@@ -183,7 +183,14 @@ public void drawGameScreen(Graphics g2d){
    if(player!=null)
     player.drawChar(g2d);
     if(!rangeWeap.isEmpty()){
-        //loop draw all weapons
+        for(int i=0; i<rangeWeap.size(); i++) {
+            rangeWeap.drawWeap(g2d);
+            //   for (int j=0; j<Bullet.size(); j++) {
+     //           if(rangeWeap.get(i).hit(sMissiles.get(j))) {
+       //             aliens.remove(i);
+      //              i--;
+        //            sMissiles.remove(j);
+              //      j--;
     }
     enemies.peek().drawChar(g2d);
   //  for(Characters c: charList){
@@ -191,10 +198,15 @@ public void drawGameScreen(Graphics g2d){
    //      c.drawChar(g2d);
  
   //   }
- //   drawWeapons(g2d);
+  // rangeWeap.drawWeap(g2d);
 
      g2d.drawString("Play!", 550, 200);
 }
+}
+
+   
+
+
 
     public void drawScreens(Graphics g2d) {
         // TODO Auto-generated method stub
