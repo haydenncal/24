@@ -92,7 +92,8 @@ MouseMotionListener{
        
 
         //write what u want to save
-        
+        if(time>0)
+            myWriter.write("time");
       //  if(enemies.isEmpty()){
        //     myWriter.write("win");
       //  }
