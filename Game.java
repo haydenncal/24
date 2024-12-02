@@ -93,7 +93,7 @@ MouseMotionListener{
 
         //write what u want to save
         if(time>0)
-            myWriter.write("You spent "+time+" on the game");
+            myWriter.write("You spent "+curtime+" on the game");
         myWriter.close();
         System.out.println("Successfully wrote to file");
     } catch (IOException e) {
@@ -202,7 +202,7 @@ public void drawGameScreen(Graphics g2d){
 
      g2d.drawString("Play!", 550, 200);
 }
-g2d.drawString( new DecimalFormat("#0.00").format(curtime), 350,30);
+g2d.drawString( new DecimalFormat("#0.00").format(curtime), 350,100);
 curtime=(System.currentTimeMillis()- time)/1000;
 }
 
