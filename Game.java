@@ -108,6 +108,9 @@ MouseMotionListener{
         temp.add(new Demo(1400, 400));
         temp.add(new Demo(1400, 400));
         temp.add(new Demo(1400, 400));
+        temp.add(new Demo(1400, 400));
+        temp.add(new Demo(1400, 400));
+        temp.add(new Demo(1400, 400));
         return temp;
 
     }
