@@ -8,7 +8,7 @@ public class Demo extends Enemy{
         return "Demo";
     }
     public Demo(int x, int y){
-        super(x,y, 200, 250, 2, 172, 2000, 5, new ImageIcon("Will.png"), new Bat());
+        super(x,y, 200, 250, 2, 172, 2000, 5, new ImageIcon("Demo.png"), new Bat());
 
 
     }
