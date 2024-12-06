@@ -103,7 +103,7 @@ public void setPic(ImageIcon pic) { this.pic = pic; }
 
 public void drawWeap(Graphics g2d){
     g2d.drawImage(pic.getImage(), x, y, w, h, null);
-    System.out.println(getX() + getY());
+    System.out.println(getX() + " y" + getY() + " h" + getH() + "w " + getW() + " pic" + getPic());
 
 }
     

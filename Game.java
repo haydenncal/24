@@ -107,7 +107,9 @@ MouseMotionListener{
         Queue <Enemy> temp = new LinkedList <>();
         temp.add(new Demo(1400, 400));
         temp.add(new Demo(1400, 400));
+     //   System.out.println("im here");
         temp.add(new Demo(1400, 400));
+      //  System.out.println("im here");
         temp.add(new Demo(1400, 400));
         temp.add(new Demo(1400, 400));
         temp.add(new Demo(1400, 400));
@@ -195,7 +197,9 @@ public void drawGameScreen(Graphics g2d){
         //            sMissiles.remove(j);
               //      j--;
     }
-    enemies.peek().drawChar(g2d);
+   
+    System.out.println("i am printintg");
+
   //  for(Characters c: charList){
         // System.out.println(c);
    //      c.drawChar(g2d);
@@ -204,9 +208,15 @@ public void drawGameScreen(Graphics g2d){
   // rangeWeap.drawWeap(g2d);
 
      g2d.drawString("Play!", 550, 200);
-}
+    
+} 
+if(!enemies.isEmpty())
+
+enemies.peek().drawChar(g2d);
 g2d.drawString( new DecimalFormat("#0.00").format(curtime), 350,100);
 curtime=(System.currentTimeMillis()- time)/1000;
+
+player.getWeapon().drawWeap(g2d);
 }
 
    
@@ -261,7 +271,10 @@ curtime=(System.currentTimeMillis()- time)/1000;
     }
 public void attack(){
     if(player.getWeapon() instanceof Range){
-        rangeWeap.add(new Range(player.getX(), player.getY(), player.getH(), player.getW(), player.getWeapon().getDam(), player.getWeapon().getDuribility(), player.getWeapon().getDPS(), player.getWeapon().getPic()));
+        if (player instanceof Mike){
+            rangeWeap.add(new RangeAttack(player.getX(), player.getY()));
+        }
+     //   rangeWeap.add(new Range(player.getX(), player.getY(), player.getH(), player.getW(), player.getWeapon().getDam(), player.getWeapon().getDuribility(), player.getWeapon().getDPS(), player.getWeapon().getPic()));
     }
     else{
         
@@ -284,57 +297,47 @@ public void attack(){
     //    }
         else if (key==65){
             screen = "gameplay";
-            attack();
-        }
-        if(e.getKeyChar() == '1') {
-            player = charList.get(0);
-            screen = "selection";
-        }
-        if(e.getKeyChar() == '1') {
-            player = charList.get(0);
-            System.out.println(player);
-        }
-        if(e.getKeyChar() == '2') {
-            player = charList.get(1);
-            screen = "selection";
-        }
-        if(e.getKeyChar() == '2') {
-            player = charList.get(1);
-            System.out.println(player);
-        }
-        if(e.getKeyChar() == '3') {
-            player = charList.get(2);
-            screen = "selection";
-        }
-        if(e.getKeyChar() == '3') {
-            player = charList.get(2);
-            System.out.println(player);
-        }
-        if(e.getKeyChar() == '4') {
-            player = charList.get(3);
-            screen = "selection";
-        }
-        if(e.getKeyChar() == '4') {
-            player = charList.get(3);
-            System.out.println(player);
-        }
-        if(e.getKeyChar() == '5') {
-            player = charList.get(4);
-            screen = "selection";
-        }
-        if(e.getKeyChar() == '5') {
-            player = charList.get(4);
-            System.out.println(player);
-        }
-        if(e.getKeyChar() == '6') {
-            player = charList.get(5);
-            screen = "selection";
-        }
-        if(e.getKeyChar() == '6') {
-            player = charList.get(5);
-            System.out.println(player);
-        }
+            player.setX(100);
+            player.setY(800);
+            player.setW(150);
+            player.setH(200);
+            player.getWeapon().setX(200);
+            player.getWeapon().setY(850);
+            player.getWeapon().setW(75);
+            player.getWeapon().setH(75);
 
+          // attack();
+        }
+        if(e.getKeyChar() == '1') {
+            player = charList.get(0);
+            screen = "selection";
+        }
+     
+        if(e.getKeyChar() == '2') {
+            player = charList.get(1);
+            screen = "selection";
+        }
+      
+        if(e.getKeyChar() == '3') {
+            player = charList.get(2);
+            screen = "selection";
+        }
+       
+        if(e.getKeyChar() == '4') {
+            player = charList.get(3);
+            screen = "selection";
+        }
+       
+        if(e.getKeyChar() == '5') {
+            player = charList.get(4);
+            screen = "selection";
+        }
+    
+        if(e.getKeyChar() == '6') {
+            player = charList.get(5);
+            screen = "selection";
+        }
+        
 
     }
 
