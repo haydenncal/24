@@ -6,7 +6,7 @@ public class Energ extends Melee{
     }
 
     public Energ(int x, int y, int h, int w){
-        super(x, y, 200, 200, 100,2,159, new ImageIcon("Energ.png"));
+        super(x, y, new ImageIcon("Energ.png"));
 
     }
 

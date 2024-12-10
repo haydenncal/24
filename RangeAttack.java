@@ -6,8 +6,8 @@ public class RangeAttack extends Range{
 
    }
 
-   public RangeAttack(int x, int y){
-    super(x, y,10, 10, 70, 5, 4, new ImageIcon("Bullet.png"));
+   public RangeAttack(int xV, int yV, int w, int h){
+    super(xV, yV, 2, 0, w, h, 30, 20, 2, new ImageIcon("Bullet.png"));
    }
 
    public String toString(){

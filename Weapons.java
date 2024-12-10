@@ -5,7 +5,7 @@ import java.awt.Graphics;
 public class Weapons {
    // public static Object getX;
     //
-    int x, y, w, h, dam, duribility, dps ;
+    int x, y, dx, dy, w, h, dam, duribility, dps ;
    private ImageIcon pic;
     public Weapons() {
 
@@ -21,7 +21,8 @@ public class Weapons {
      g2d.drawImage(pic.getImage(), x,y,w,h, null);
    }
 
-    public Weapons(int x, int y, int h, int w, int dam2, int dur, int dp, ImageIcon p) {
+    //range
+   public Weapons(int x, int y, int Dx, int Dy, int h, int w, int dam2, int dur, int dp, ImageIcon p) {
         //TODO Auto-generated constructor stub
         dam=dam2;
         duribility=dur;
@@ -31,8 +32,18 @@ public class Weapons {
         this.y=y;
        this.h=h;
        this.w=w;
+       dx = Dx;
+       dy = Dy;
         
     
+    }
+
+    //melee
+    public Weapons( int x, int y, ImageIcon p) {
+        this.x=x;
+        this.y=y;
+        pic = p;
+
     }
     public void setX(int i) {
         // TODO Auto-generated method stub

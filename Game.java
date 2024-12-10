@@ -27,6 +27,7 @@ MouseMotionListener{
     private File saveFile;
     private double curtime;
     private double time;
+    private String cat;
 
 
 
@@ -55,6 +56,7 @@ MouseMotionListener{
         System.out.println(enemies.size());
         curtime = 0;
         time = System.currentTimeMillis();
+        cat = "Choose your Character";
 
 
     }
@@ -180,7 +182,15 @@ public void drawStartScreen(Graphics g2d) {
     for(Characters c: charList){
        // System.out.println(c);
         c.drawChar(g2d);
-        g2d.drawString("Choose Your Character", 550, 200);
+        //g2d.drawString("Choose Your Character", 550, 200);
+        g2d.drawString(cat.substring(0, index), 550, 200);
+
+        if (index<cat.length()){
+            if(System.currentTimeMillis()-time>100){
+                time = System.currentTimeMillis();
+                index++;
+            }
+        }
 
     }
 }
@@ -272,7 +282,8 @@ player.getWeapon().drawWeap(g2d);
 public void attack(){
     if(player.getWeapon() instanceof Range){
         if (player instanceof Mike){
-            rangeWeap.add(new RangeAttack(player.getX(), player.getY()));
+            rangeWeap.add(new RangeAttack(player.getX(), player.getY(),20, 20));
+
         }
      //   rangeWeap.add(new Range(player.getX(), player.getY(), player.getH(), player.getW(), player.getWeapon().getDam(), player.getWeapon().getDuribility(), player.getWeapon().getDPS(), player.getWeapon().getPic()));
     }
