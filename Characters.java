@@ -97,4 +97,10 @@ public class Characters {
     public void setDy(int dy) { this.dy = dy; }
     public void setPic(ImageIcon pic) { this.pic = pic; }
 
+
+    public boolean Collision(Weapons C) {
+        return getX()+getW()>=C.getX()&&getX()<=C.getX()+C.getW()&&
+        getY()+getH()>=C.getY()&&getY()<=C.getY()+C.getH();
+    
+    }
 }

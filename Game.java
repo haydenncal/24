@@ -28,6 +28,7 @@ MouseMotionListener{
     private double curtime;
     private double time;
     private String cat;
+    private int index;
 
 
 
@@ -57,6 +58,7 @@ MouseMotionListener{
         curtime = 0;
         time = System.currentTimeMillis();
         cat = "Choose your Character";
+        index = 0;
 
 
     }
@@ -107,8 +109,8 @@ MouseMotionListener{
 
     public Queue <Enemy> setEs(){
         Queue <Enemy> temp = new LinkedList <>();
-        temp.add(new Demo(1400, 400));
-        temp.add(new Demo(1400, 400));
+        temp.add(new Demo(1400, 800));
+        temp.add(new Demo(1400, 800));
      //   System.out.println("im here");
         temp.add(new Demo(1400, 400));
       //  System.out.println("im here");
@@ -228,6 +230,12 @@ g2d.drawString( new DecimalFormat("#0.00").format(curtime), 350,100);
 curtime=(System.currentTimeMillis()- time)/1000;
 
 player.getWeapon().drawWeap(g2d);
+
+
+for(int i=0; i<rangeWeap.size(); i++) {
+    rangeWeap.get(i).move();
+}
+
 }
 
    
@@ -283,7 +291,17 @@ player.getWeapon().drawWeap(g2d);
 public void attack(){
     if(player.getWeapon() instanceof Range){
         if (player instanceof Mike){
+            rangeWeap.add(new RangeAttack(player.getX()+150, player.getY()+75,20, 20));
+            System.out.println("working");
+        }
+        else if(player instanceof Max){
             rangeWeap.add(new RangeAttack(player.getX(), player.getY(),20, 20));
+           // System.out.println("working");
+
+        }
+        else if(player instanceof Lucas){
+            rangeWeap.add(new RangeAttack(player.getX(), player.getY(),20, 20));
+           // System.out.println("working");
 
         }
      //   rangeWeap.add(new Range(player.getX(), player.getY(), player.getH(), player.getW(), player.getWeapon().getDam(), player.getWeapon().getDuribility(), player.getWeapon().getDPS(), player.getWeapon().getPic()));
@@ -389,6 +407,7 @@ public void attack(){
         // if mousecollision is true
         //player = loop.get(i)
         //enemies.remove();
+        attack();
     }
 
     @Override

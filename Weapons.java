@@ -50,6 +50,12 @@ public class Weapons {
    x=i; 
 }
 
+public void move() {
+    x += dx;
+    y += dy;
+    System.out.println(x+"  "+ dx);
+}
+
 
 
 //need more getters ans setters.
@@ -118,4 +124,5 @@ public void drawWeap(Graphics g2d){
 
 }
     
+
 }
