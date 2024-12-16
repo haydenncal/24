@@ -234,7 +234,16 @@ player.getWeapon().drawWeap(g2d);
 
 for(int i=0; i<rangeWeap.size(); i++) {
     rangeWeap.get(i).move();
+    enemies.element().Collision(rangeWeap.get(i));
+    if (rangeWeap.Collision(enemies.element()) {
+        enemies.remove();
+        rangeWeap.remove(i);
+    }
 }
+
+
+//melee colliion help
+//enemies.element().Collision(player.getWeapon());
 
 }
 
@@ -271,6 +280,7 @@ for(int i=0; i<rangeWeap.size(); i++) {
      // g2d.drawImage(player.getWeapon().getPic().getImage(), player.getX(), player.getY(), 600, 600, this);
        g2d.setFont(new Font("Times New Roman", Font.BOLD, 40));
        g2d.drawString("You Picked "+ player.toString(), 700,250);
+       g2d.drawString("Press 'A' to start your game.", 625, 300);
        g2d.drawString("Damage: " + player.getDamage(), 200, 800);
        g2d.drawString("Stamina: " + player.getStam(), 600, 800);
        g2d.drawString("Speed: " + player.getSpeed(), 1000, 800);
@@ -295,12 +305,12 @@ public void attack(){
             System.out.println("working");
         }
         else if(player instanceof Max){
-            rangeWeap.add(new RangeAttack(player.getX(), player.getY(),20, 20));
+            rangeWeap.add(new RangeAttack(player.getX()+150, player.getY()+75,20, 20));
            // System.out.println("working");
 
         }
         else if(player instanceof Lucas){
-            rangeWeap.add(new RangeAttack(player.getX(), player.getY(),20, 20));
+            rangeWeap.add(new RangeAttack(player.getX()+150, player.getY()+75,20, 20));
            // System.out.println("working");
 
         }
