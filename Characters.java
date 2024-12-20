@@ -98,9 +98,9 @@ public class Characters {
     public void setPic(ImageIcon pic) { this.pic = pic; }
 
 
-    public boolean Collision(Weapons C) {
-        return getX()+getW()>=C.getX()&&getX()<=C.getX()+C.getW()&&
-        getY()+getH()>=C.getY()&&getY()<=C.getY()+C.getH();
-    
-    }
+  //  public boolean Collision(Weapons C) {
+  //      return getX()+getW()>=C.getX()&&getX()<=C.getX()+C.getW()&&
+   //     getY()+getH()>=C.getY()&&getY()<=C.getY()+C.getH();
+  //  
+  //  }
 }

@@ -23,6 +23,7 @@ MouseMotionListener{
     private Characters player;
    // private Weapons weapom;
     private ArrayList <Range> rangeWeap;
+    private ArrayList <Melee> meleeWeap;
     private Queue <Enemy> enemies;
     private File saveFile;
     private double curtime;
@@ -54,7 +55,7 @@ MouseMotionListener{
         screen="start";
         //rangeWeap= new ArrayList <Range>();
         enemies = setEs();
-        System.out.println(enemies.size());
+      //  System.out.println(enemies.size());
         curtime = 0;
         time = System.currentTimeMillis();
         cat = "Choose your Character";
@@ -114,9 +115,9 @@ MouseMotionListener{
      //   System.out.println("im here");
         temp.add(new Demo(1400, 400));
       //  System.out.println("im here");
-        temp.add(new Demo(1400, 400));
-        temp.add(new Demo(1400, 400));
-        temp.add(new Demo(1400, 400));
+       // temp.add(new Demo(1400, 400));
+       // temp.add(new Demo(1400, 400));
+       // temp.add(new Demo(1400, 400));
         return temp;
 
     }
@@ -211,7 +212,7 @@ public void drawGameScreen(Graphics g2d){
               //      j--;
     }
    
-    System.out.println("i am printintg");
+    System.out.println("i am work");
 
   //  for(Characters c: charList){
         // System.out.println(c);
@@ -231,15 +232,53 @@ curtime=(System.currentTimeMillis()- time)/1000;
 
 player.getWeapon().drawWeap(g2d);
 
+//rangeWeap.move();
 
 //for(int i=0; i<rangeWeap.size(); i++) {
   //  rangeWeap.get(i).move();
-    //enemies.element().Collision(rangeWeap.get(i));
-  //  if (rangeWeap.Collision(enemies.element()) {
-      //  enemies.peek().remove();
-       // rangeWeap.remove(i);
-  //  }
+  //  enemies.element().Collision(rangeWeap.get(i));
+  //  if (rangeWeap.Collision(enemies.element())) {
+   //    enemies.peek().remove();
+   //     rangeWeap.remove(i);
+   // }
 //}
+if(enemies.isEmpty()) {
+    
+    screen = "win";
+    
+    //rangeWeap.get(i).move();
+   // Enemy enemy = enemies.peek();
+
+    //collision between the weapon and enemy
+    //if (rangeWeap.get(i).Collision(enemy)) {
+    
+     //   enemies.remove(); 
+      //  rangeWeap.remove(i); 
+
+        
+      //  i--;  
+       // break;  
+    
+}
+for (int i = 0; i < rangeWeap.size(); i++) {
+
+    rangeWeap.get(i).move();
+    Enemy enemy = enemies.peek();
+
+    //collision between the weapon and enemy
+    if (rangeWeap.get(i).Collision(enemy)) {
+    
+        enemies.remove(); 
+        rangeWeap.remove(i); 
+
+        
+        i--;  
+        break;  
+    }
+}
+
+
+
 
 //public void drawGameScreen(Graphics g2d){
   //  if(player != null)
@@ -255,7 +294,7 @@ player.getWeapon().drawWeap(g2d);
    //     enemy.drawChar(g2d);
    // }
  
-    System.out.println("i am printing");
+   // System.out.println("i am printing");
  
     // Handle collisions between range weapons and enemies
   //  for (int i = 0; i < rangeWeap.size(); i++) {
@@ -307,12 +346,18 @@ player.getWeapon().drawWeap(g2d);
             case "gameplay":
                 drawGameScreen(g2d);
                 break;
+            case "win":
+            drawWinScreen(g2d);
+                break;
            
 
         }
     }
 
-
+    public void drawWinScreen(Graphics g2d){
+        g2d.setFont(new Font("Times New Roman", Font.BOLD, 40));
+        g2d.drawString(" You Win", 700,250);
+    }
 
     public void drawSelectScreen(Graphics g2d) {
         // TODO Auto-generated method stub
@@ -326,7 +371,7 @@ player.getWeapon().drawWeap(g2d);
        g2d.drawString("Stamina: " + player.getStam(), 600, 800);
        g2d.drawString("Speed: " + player.getSpeed(), 1000, 800);
        g2d.drawString("Health: " + player.getHealth(), 1400, 800);
-      System.out.println(player.getWeapon().getX());
+      //System.out.println(player.getWeapon().getX());
      //  weapom.
       player.getWeapon().drawChar(g2d);
 
@@ -343,7 +388,8 @@ public void attack(){
     if(player.getWeapon() instanceof Range){
         if (player instanceof Mike){
             rangeWeap.add(new RangeAttack(player.getX()+150, player.getY()+75,20, 20));
-            System.out.println("working");
+            System.out.println(x);
+            System.out.println("i am working");
         }
         else if(player instanceof Max){
             rangeWeap.add(new RangeAttack(player.getX()+150, player.getY()+75,20, 20));
@@ -355,11 +401,26 @@ public void attack(){
            // System.out.println("working");
 
         }
+        else if(player instanceof Dustin){
+            rangeWeap.add(new RangeAttack(player.getX()+150, player.getY()+75,20, 20));
+           // System.out.println("working");
+
      //   rangeWeap.add(new Range(player.getX(), player.getY(), player.getH(), player.getW(), player.getWeapon().getDam(), player.getWeapon().getDuribility(), player.getWeapon().getDPS(), player.getWeapon().getPic()));
     }
-    else{
-        
+    else if(player instanceof Eleven){
+        rangeWeap.add(new RangeAttack(player.getX()+150, player.getY()+75,20, 20));
+       // System.out.println("working");
     }
+    else if(player instanceof Will){
+        rangeWeap.add(new RangeAttack(player.getX()+150, player.getY()+75,20, 20));
+       // System.out.println("working");
+
+    }
+
+    else{ 
+
+    }    
+} 
 }
     //DO NOT DELETE
     @Override
@@ -442,13 +503,30 @@ public void attack(){
 
     }
 
+    //@Override
     @Override
-
     public void mouseMoved(MouseEvent arg0) {
-        // TODO Auto-generated method stub
-        x=arg0.getX();
-        y=arg0.getY();
+        
+        if ("gameplay".equals(screen)) {
+            x = arg0.getX();
+            y = arg0.getY();
+    
+            
+            player.setX(x - player.getW() / 2);
+            player.setY(y - player.getH() / 2);
+            player.getWeapon().setX(x - player.getW() / 2);
+            player.getWeapon().setY(y - player.getH() / 2);
+            repaint(); 
+        }
     }
+    
+   // public void mouseMoved(MouseEvent arg0) {
+        // TODO Auto-generated method stub
+      //  x=arg0.getX();
+      //  y=arg0.getY();
+       // screen = "gameplay";
+        
+   // }
 
     @Override
     public void mouseClicked(MouseEvent arg0) {
@@ -459,6 +537,8 @@ public void attack(){
         //player = loop.get(i)
         //enemies.remove();
         attack();
+     //   Weapons.move();
+        System.out.println("this works");
     }
 
     @Override

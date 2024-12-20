@@ -56,6 +56,13 @@ public void move() {
     System.out.println(x+"  "+ dx);
 }
 
+public boolean Collision(Characters character) {
+    // Check for a collision between this weapon and the character
+    return getX() + getW() >= character.getX() && getX() <= character.getX() + character.getW() &&
+           getY() + getH() >= character.getY() && getY() <= character.getY() + character.getH();
+}
+
+
 
 
 //need more getters ans setters.
@@ -120,7 +127,7 @@ public void setPic(ImageIcon pic) { this.pic = pic; }
 
 public void drawWeap(Graphics g2d){
     g2d.drawImage(pic.getImage(), x, y, w, h, null);
-    System.out.println(getX() + " y" + getY() + " h" + getH() + "w " + getW() + " pic" + getPic());
+  //  System.out.println(getX() + " y" + getY() + " h" + getH() + "w " + getW() + " pic " + getPic());
 
 }
     
