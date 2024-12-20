@@ -1,4 +1,4 @@
-import javax.swing.*;
+ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -232,20 +232,61 @@ curtime=(System.currentTimeMillis()- time)/1000;
 player.getWeapon().drawWeap(g2d);
 
 
-for(int i=0; i<rangeWeap.size(); i++) {
-    rangeWeap.get(i).move();
-    enemies.element().Collision(rangeWeap.get(i));
-    if (rangeWeap.Collision(enemies.element()) {
-        enemies.remove();
-        rangeWeap.remove(i);
-    }
-}
+//for(int i=0; i<rangeWeap.size(); i++) {
+  //  rangeWeap.get(i).move();
+    //enemies.element().Collision(rangeWeap.get(i));
+  //  if (rangeWeap.Collision(enemies.element()) {
+      //  enemies.peek().remove();
+       // rangeWeap.remove(i);
+  //  }
+//}
 
+//public void drawGameScreen(Graphics g2d){
+  //  if(player != null)
+   //     player.drawChar(g2d);
+ 
+    // Draw all range weapons
+   // for (Range weapon : rangeWeap) {
+  //      weapon.drawWeap(g2d);  // Draw weapon
+  //  }
+ 
+    // Draw enemies
+   // for (Enemy enemy : enemies) {
+   //     enemy.drawChar(g2d);
+   // }
+ 
+    System.out.println("i am printing");
+ 
+    // Handle collisions between range weapons and enemies
+  //  for (int i = 0; i < rangeWeap.size(); i++) {
+  //      Range weapon = rangeWeap.get(i);  // Get each weapon in the list
+  //      for (Enemy enemy : enemies) {
+ //           // Check if the weapon's hitbox overlaps with the enemy's hitbox
+  //          if (weapon.getX() >= enemy.getX() && weapon.getX() <= (enemy.getX() + enemy.getW()) &&
+  //              weapon.getY() >= enemy.getY() && weapon.getY() <= (enemy.getY() + enemy.getH())) {
+                    
+                // Remove the enemy and the weapon upon collision
+  //              enemies.remove(enemy);
+  //              rangeWeap.remove(i);
+  //              i--;  // Decrement the index to prevent skipping the next weapon
+   //             break; // Break the inner loop as the weapon already hit an enemy
+           // }
+//  }
+  //  }
+ 
+    // Display current time
+   // g2d.drawString(new DecimalFormat("#0.00").format(curtime), 350, 100);
+   // curtime = (System.currentTimeMillis() - time) / 1000;
+ 
+    // Draw player's weapon
+  //  player.getWeapon().drawWeap(g2d);
+ }
+ 
 
 //melee colliion help
 //enemies.element().Collision(player.getWeapon());
 
-}
+
 
    
 
