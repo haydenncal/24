@@ -198,6 +198,11 @@ public void drawStartScreen(Graphics g2d) {
 
     }
 }
+
+public void drawLoseScreen(Graphics g2d){
+    g2d.setFont(new Font("Times New Roman", Font.BOLD, 40));
+    g2d.drawString(" You LOSE", 700,250);
+}
 public void drawGameScreen(Graphics g2d){
    if(player!=null)
     player.drawChar(g2d);
@@ -349,6 +354,10 @@ for (int i = 0; i < rangeWeap.size(); i++) {
             case "win":
             drawWinScreen(g2d);
                 break;
+            case "lose":
+            drawLoseScreen(g2d);
+            break;
+
            
 
         }
@@ -429,6 +438,9 @@ public void attack(){
 
         key= e.getKeyCode();
         System.out.println(key);
+       if(key==76){
+        screen="lose";
+       }
         if(key==32){
             screen="selection";
             player=charList.get(1);
