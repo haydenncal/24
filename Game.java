@@ -441,6 +441,9 @@ public void attack(){
        if(key==76){
         screen="lose";
        }
+       if(key==87){
+        screen="win ";
+       }
         if(key==32){
             screen="selection";
             player=charList.get(1);
