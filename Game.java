@@ -58,7 +58,7 @@ MouseMotionListener{
       //  System.out.println(enemies.size());
         curtime = 0;
         time = System.currentTimeMillis();
-        cat = "Choose your Character";
+        cat = "Choose your Character with #s on keyboard";
         index = 0;
 
 
@@ -186,7 +186,7 @@ public void drawStartScreen(Graphics g2d) {
        // System.out.println(c);
         c.drawChar(g2d);
         //g2d.drawString("Choose Your Character", 550, 200);
-        g2d.drawString(cat.substring(0, index), 550, 200);
+        g2d.drawString(cat.substring(0, index), 250, 200);
      //   int index = 0;
 
         if (index<cat.length()){
